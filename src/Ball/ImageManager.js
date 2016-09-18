@@ -1,6 +1,7 @@
-import Brands from './static/Brands';
-import Countries from './static/Countries';
-import Politics from './static/Politics';
+import { sample } from 'lodash';
+import Brands from '../static/Brands';
+import Countries from '../static/Countries';
+import Politics from '../static/Politics';
 
 class ImageFlyweight {
   constructor(src) {
@@ -19,7 +20,15 @@ export function getListImagesByType() {
   };
 }
 
-export const ImageFlyweightFactory = (function a() {
+export function randomImagePicker(type) {
+  const list = getListImagesByType();
+  if (!list[type]) {
+    return null;
+  }
+  return sample(list[type]);
+}
+
+export const ImageFlyweightFactory = (function factory() {
   const flyweights = {};
 
   return {

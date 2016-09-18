@@ -1,4 +1,4 @@
-import Ball from '../ballClass';
+import Ball from '../Ball/Ball';
 
 export const ADD_BALL = 'ADD_BALL';
 export const UPDATE_BALL = 'UPDATE_BALL';

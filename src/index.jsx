@@ -3,17 +3,17 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
-import App from './app.jsx';
 import startup from './startup.js';
 import reducers from './reducers';
+import CanvasBall from './containers/canvasBall.jsx';
 
 startup();
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
+    <CanvasBall />
   </Provider>
-  , document.querySelector('.container')
+  , document.querySelector('#content')
 );

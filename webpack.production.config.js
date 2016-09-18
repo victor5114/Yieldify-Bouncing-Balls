@@ -11,13 +11,13 @@ const DEST = './build';
 
 // local css modules
 loaders.push({
-  test: /[\/\\]app[\/\\].*\.css/,
+  test: /[\/\\]src[\/\\].*\.css/,
   loader: ExtractTextPlugin.extract('style', CCS_LOAD_STR),
 });
 
 // local scss modules
 loaders.push({
-  test: /[\/\\]app[\/\\].*\.scss/,
+  test: /[\/\\]src[\/\\].*\.scss/,
   loader: ExtractTextPlugin.extract('style', CCS_LOAD_STR, 'sass'),
 });
 
@@ -29,7 +29,7 @@ loaders.push({
 
 module.exports = {
   entry: [
-    './app/index.jsx',
+    './src/index.jsx',
   ],
   output: {
     path: path.join(__dirname, DEST),
@@ -61,7 +61,7 @@ module.exports = {
       allChunks: true,
     }),
     new HtmlWebpackPlugin({
-      template: './app/index.html',
+      template: './src/index.html',
       title: 'Webpack App',
     }),
     new webpack.optimize.DedupePlugin(),

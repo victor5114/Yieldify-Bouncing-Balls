@@ -19,7 +19,7 @@ loaders.push({
 });
 // local scss modules
 loaders.push({
-  test: /[\/\\]app[\/\\].*\.scss/,
+  test: /[\/\\]src[\/\\].*\.scss/,
   loaders: [
     'style?sourceMap',
     CCS_LOAD_STR,
@@ -29,7 +29,7 @@ loaders.push({
 
 // local css modules
 loaders.push({
-  test: /[\/\\]app[\/\\].*\.css/,
+  test: /[\/\\]src[\/\\].*\.css/,
   loaders: [
     'style?sourceMap',
     CCS_LOAD_STR,
@@ -40,7 +40,7 @@ module.exports = {
   entry: [
     `webpack-dev-server/client?http://${HOST}:${PORT}`,
     'webpack/hot/only-dev-server',
-    './app/index.jsx', // The appʼs entry point
+    './src/index.jsx', // The appʼs entry point
   ],
   devtool: process.env.WEBPACK_DEVTOOL || 'inline-source-map',
   output: {
@@ -70,7 +70,7 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './app/index.html',
+      template: './src/index.html',
     }),
   ],
 };

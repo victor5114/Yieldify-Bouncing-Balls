@@ -1,7 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
-
-
 import Ball from './ballClass';
 
 export default class App extends Component {
@@ -32,7 +30,7 @@ export default class App extends Component {
   }
 
   moveAll() {
-    const newBallList = this.state.ballList.map(ball => {
+    const newBallList = this.state.ballList.map((ball) => {
       ball.move();
       return ball;
     });

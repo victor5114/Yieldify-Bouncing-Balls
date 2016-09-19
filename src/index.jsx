@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 import startup from './startup.js';
 import reducers from './reducers';
-import CanvasBall from './containers/canvasBall.jsx';
+import App from './components/app.jsx';
 
 startup();
 
@@ -13,7 +13,7 @@ const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <CanvasBall />
+    <App />
   </Provider>
   , document.querySelector('#content')
 );

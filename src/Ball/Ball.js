@@ -3,7 +3,7 @@ import UniqueObject from '../utils/mixins/uniqueObject';
 import { ImageFlyweightFactory, randomImagePicker } from './ImageManager';
 
 export default class BallClass extends inherit(UniqueObject) {
-  static BALL_SIZE = 50;
+  static BALL_SIZE = 30;
 
   constructor(speedX = 5, speedY = 5, ImageType = 'Brands', ...args) {
     super(...args);

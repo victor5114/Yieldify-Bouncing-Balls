@@ -6,9 +6,10 @@ export const UPDATE_BALLS = 'UPDATE_BALLS';
 export const PAUSE_BALL = 'PAUSE_BALL';
 export const RESUME_BALL = 'RESUME_BALL';
 export const DELETE_BALL = 'DELETE_BALL';
+export const CHANGE_IMAGE_TYPE = 'CHANGE_IMAGE_TYPE';
 
-export function addBall() {
-  const ball = new Ball(3, 4);
+export function addBall(...args) {
+  const ball = new Ball(...args);
 
   return {
     type: ADD_BALL,
@@ -23,10 +24,11 @@ export function updateBall(ball) {
   };
 }
 
-export function updateBalls(balls) {
+export function updateBalls(balls, diffTime) {
   return {
     type: UPDATE_BALLS,
     payload: balls,
+    diffTime,
   };
 }
 
@@ -48,5 +50,12 @@ export function deleteBall(ball) {
   return {
     type: DELETE_BALL,
     payload: ball,
+  };
+}
+
+export function changeImageType(type) {
+  return {
+    type: CHANGE_IMAGE_TYPE,
+    payload: type,
   };
 }

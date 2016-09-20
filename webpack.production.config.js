@@ -20,7 +20,15 @@ loaders.push({
   test: /[\/\\]src[\/\\].*\.scss/,
   loader: ExtractTextPlugin.extract('style', CCS_LOAD_STR, 'sass'),
 });
-
+// global scss
+loaders.push({
+  test: /[\/\\](node_modules|global)[\/\\].*\.scss$/,
+  loaders: [
+    'style',
+    'css',
+    'sass',
+  ],
+});
 // global css files
 loaders.push({
   test: /[\/\\](node_modules|global)[\/\\].*\.css$/,

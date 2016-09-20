@@ -10,6 +10,7 @@ import {
 const INITIAL_STATE = {
   ballList: {},
   activeBallIds: [],
+  diffTime: 0,
   // We can add here other state properties so we can be more scalable later on.
 };
 
@@ -55,6 +56,7 @@ export default function (state = INITIAL_STATE, action) {
           [UUID]: action.payload,
         },
         activeBallIds: _.filter(state.activeBallIds, (id) => id !== UUID),
+        diffTime: action.payload.delta,
       };
     }
     case RESUME_BALL: {

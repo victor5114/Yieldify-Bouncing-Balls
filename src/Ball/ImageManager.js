@@ -3,6 +3,14 @@ import Brands from '../static/Brands';
 import Countries from '../static/Countries';
 import Politics from '../static/Politics';
 
+import Backgrounds from '../static/Backgrounds';
+
+export const listImageType = [
+  'Brands',
+  'Politics',
+  'Countries',
+];
+
 class ImageFlyweight {
   constructor(src) {
     const img = new Image();
@@ -10,22 +18,6 @@ class ImageFlyweight {
     this.img = img;
     this.img.src = src;
   }
-}
-
-export function getListImagesByType() {
-  return {
-    Brands: Object.keys(Brands),
-    Countries: Object.keys(Countries),
-    Politics: Object.keys(Politics),
-  };
-}
-
-export function randomImagePicker(type) {
-  const list = getListImagesByType();
-  if (!list[type]) {
-    return null;
-  }
-  return sample(list[type]);
 }
 
 export const ImageFlyweightFactory = (function factory() {
@@ -50,6 +42,10 @@ export const ImageFlyweightFactory = (function factory() {
             src = Politics[srcName];
             break;
           }
+          case 'Backgrounds': {
+            src = Backgrounds[srcName];
+            break;
+          }
           default: {
             break;
           }
@@ -69,3 +65,20 @@ export const ImageFlyweightFactory = (function factory() {
     },
   };
 }());
+
+export function getListImagesByType() {
+  return {
+    Brands: Object.keys(Brands),
+    Countries: Object.keys(Countries),
+    Politics: Object.keys(Politics),
+    Backgrounds: Object.keys(Backgrounds),
+  };
+}
+
+export function randomImagePicker(type) {
+  const list = getListImagesByType();
+  if (!list[type]) {
+    return null;
+  }
+  return sample(list[type]);
+}

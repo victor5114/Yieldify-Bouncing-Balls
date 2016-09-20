@@ -9,6 +9,15 @@ const PORT = process.env.PORT || '8888';
 const CCS_LOAD_STR = 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]';
 const DEST = './';
 
+// global scss
+loaders.push({
+  test: /[\/\\](node_modules|global)[\/\\].*\.scss$/,
+  loaders: [
+    'style',
+    'css',
+    'sass',
+  ],
+});
 // global css
 loaders.push({
   test: /[\/\\](node_modules|global)[\/\\].*\.css$/,

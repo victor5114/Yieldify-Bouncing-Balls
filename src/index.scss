@@ -20,23 +20,23 @@ body.mobile {
   background: #fff;
 }
 
-* {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-a {
-  -webkit-tap-highlight-color: rgba(109, 169, 182, 0.2);
-  pointer-events: auto;
-}
-
-hr {
-  border: none;
-  border-top: solid 1px #505050;
-  margin: 0.5em 0;
-}
+// * {
+//   -moz-user-select: none;
+//   -webkit-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
+//
+// a {
+//   -webkit-tap-highlight-color: rgba(109, 169, 182, 0.2);
+//   pointer-events: auto;
+// }
+//
+// hr {
+//   border: none;
+//   border-top: solid 1px #505050;
+//   margin: 0.5em 0;
+// }
 
 .desktop .content {
   overflow: scroll;
@@ -45,4 +45,11 @@ hr {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+#canvas {
+
+}
+#background {
+    display: none;
 }

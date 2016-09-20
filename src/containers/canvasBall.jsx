@@ -65,8 +65,6 @@ class canvasBall extends Component {
     this.props.addBall(
       event.layerX,
       event.layerY,
-      Math.random() * this.canvas.width,
-      Math.random() * this.canvas.height,
       this.props.imageType,
     );
   }

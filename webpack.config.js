@@ -79,7 +79,9 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
+      title: 'Bouncing Balls',
       template: './src/index.html',
+      favicon: './src/static/favicon.ico',
     }),
   ],
 };

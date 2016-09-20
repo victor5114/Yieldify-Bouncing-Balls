@@ -5,23 +5,26 @@ import CanvasBall from '../containers/canvasBall.jsx';
 import ListBall from '../containers/listBall.jsx';
 import SelectImageType from '../containers/selectImageType.jsx';
 
+import styles from '../index.scss';
+
 const App = () =>
   <div className="container-fluid">
-    <div className="row">
-      <p>Title</p>
+    <div className="page-header">
+      <h1>Bouncing Balls Project</h1>
     </div>
     <div className="row">
-      <div className="col-md-6 col-md-offset-1">
-        <CanvasBall />
-      </div>
-      <div className="col-md-4 col-md-offset-2">
-        <div className="row">
-          <div className="col-md-3">
-            <SelectImageType />
-          </div>
-        </div>
-        <div className="row">
+      <div
+        className={
+        `${styles['equal-height-lg']} 
+        ${styles['equal-height']}
+        ${styles['equal-height-sm']}`}
+      >
+        <div className="col-md-2 col-sm-3 col-xs-4">
+          <SelectImageType />
           <ListBall />
+        </div>
+        <div className="col-md-8 col-sm-9 col-xs-8">
+          <CanvasBall />
         </div>
       </div>
     </div>

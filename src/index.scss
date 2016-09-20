@@ -1,3 +1,10 @@
+* {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 html, body {
   margin: 0;
 }
@@ -8,35 +15,15 @@ body {
 }
 
 body.desktop {
-  background: #ececec;
-  //background-image: url('./static/bluesky.jpg');
+  background: #f4f4f4;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  overflow: hidden;
 }
 
 body.mobile {
   background: #fff;
 }
-
-// * {
-//   -moz-user-select: none;
-//   -webkit-user-select: none;
-//   -ms-user-select: none;
-//   user-select: none;
-// }
-//
-// a {
-//   -webkit-tap-highlight-color: rgba(109, 169, 182, 0.2);
-//   pointer-events: auto;
-// }
-//
-// hr {
-//   border: none;
-//   border-top: solid 1px #505050;
-//   margin: 0.5em 0;
-// }
 
 .desktop .content {
   overflow: scroll;
@@ -45,6 +32,66 @@ body.mobile {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  div.equal-height-lg {
+      display: table;
+      width: 100%;
+  }
+
+  div.equal-height-lg > div[class^='col-'] {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  div.equal-height {
+      display: table;
+      width: 100%;
+  }
+
+  div.equal-height > div[class^='col-'] {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+  }
+}
+
+@media (min-width: 767px) {
+    div.equal-height-sm {
+        display: table;
+        width: 100%;
+    }
+
+    div.equal-height-sm > div[class^='col-'] {
+        display: table-cell;
+        float: none;
+        vertical-align: top;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  div.equal-height-xs {
+      display: table;
+      width: 100%;
+  }
+
+  div.equal-height-xs > div[class^='col-'] {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+  }
+}
+
+.container-list-ball {
+  overflow: scroll;
+  height: 600px;
 }
 
 #canvas {

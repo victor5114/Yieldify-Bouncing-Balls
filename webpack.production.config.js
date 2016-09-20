@@ -70,7 +70,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      title: 'Webpack App',
+      title: 'Bouncing Balls',
+      favicon: './src/static/favicon.ico',
     }),
     new webpack.optimize.DedupePlugin(),
   ],

@@ -19,13 +19,15 @@ export default class BallClass extends inherit(UniqueObject) {
     this.virtX = posX;
     this.initPoint = new Point(posX - (BallClass.BALL_SIZE / 2), posY - (BallClass.BALL_SIZE / 2));
     this.angle = (Math.PI / 8) * Math.floor((Math.random() * 16) + 1); // Random angle.
-    this.velocity = 20 * Math.floor((Math.random() * 5) + 1); // Random velocity.
+    this.velocity = 30 * Math.floor((Math.random() * 5) + 1); // Random velocity.
     this.xDir = 1; // Direction on X axis
 
     this.timeElapsed = 0;
     this.backgroundImage = ImageFlyweightFactory.get(randomImagePicker(ImageType), ImageType);
     this.strokeColor = this.getRandomColor();
     this.animate = true;
+
+    // Bind some method to object context.
     this.draw = this.draw.bind(this);
     this.move = this.move.bind(this);
   }
@@ -61,7 +63,10 @@ export default class BallClass extends inherit(UniqueObject) {
       this.computeYPos(this.velocity, this.angle, (t - 5) / 4, initY)
     );
 
-    if (this.coord.euclideanDistance(pastPoint) < 10) {
+    // Stop condition
+    if (this.coord.euclideanDistance(pastPoint) < 20
+      && this.coord.y > (maxHeight - BallClass.BALL_SIZE - 5)) {
+      console.log(this.coord.y);
       this.animate = false;
       return;
     }

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { resumeBall, pauseBall, deleteBall } from '../actions/index';
+import styles from '../index.scss';
 
 class listBall extends Component {
   static propTypes = {
@@ -27,16 +28,24 @@ class listBall extends Component {
     const { ballList } = this.props;
     const prepToRenderList = Object.keys(ballList).map(key => ballList[key]);
     return prepToRenderList.map(ball =>
-      <li className="list-group-item" key={ball.uuid}>
-        <span className="pull-xs-right">{ball.uuid}</span>
-        <strong>Ball {ball.uuid}</strong>
+      <li className="list-group-item clearfix" key={ball.uuid}>
+        <strong>{ball.uuid} : </strong>
+        <img src={ball.backgroundImage.img.src} alt="ball.uuid" height="40" width="40" />
+        <span className="pull-right">
+          <button className="btn btn-default">
+            <span className="glyphicon glyphicon-pause" />
+          </button>
+          <button className="btn btn-danger">
+            <span className="glyphicon glyphicon-trash" />
+          </button>
+        </span>
       </li>
     );
   }
 
   render() {
     return (
-      <div>
+      <div className={styles['container-list-ball']}>
         <span>LIST OF BALLS</span>
         <ul className="list-group">
           {this.renderBallElement()}

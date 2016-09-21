@@ -3,10 +3,9 @@ import Dropdownlist from 'react-widgets/lib/DropdownList';
 import { connect } from 'react-redux';
 import { changeImageType } from '../actions/index';
 import { listImageType } from '../Ball/ImageManager';
-import styles from '../../index.scss';
 
 const selectImageType = (props) =>
-  <div className={styles['select-dropdown']}>
+  <div className="select-dropdown">
     <Dropdownlist
       value={props.imageType}
       data={listImageType}

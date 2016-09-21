@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { resumeBall, pauseBall, deleteBall } from '../actions/index';
-import styles from '../../index.scss';
 
 class listBall extends Component {
   static propTypes = {
@@ -43,7 +42,7 @@ class listBall extends Component {
 
     if (prepToRenderList.length === 0) {
       return (
-        <div className={styles['empty-ball-list']}>
+        <div className="empty-ball-list">
           <b>Click on canvas</b>
           <span className="glyphicon glyphicon-arrow-right" />
         </div>
@@ -90,7 +89,7 @@ class listBall extends Component {
 
   render() {
     return (
-      <div className={styles['container-list-ball']}>
+      <div className="container-list-ball">
         <ul className="list-group">
           {this.renderBallElement()}
         </ul>

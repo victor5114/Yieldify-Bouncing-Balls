@@ -5,8 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = process.env.HOST || '127.0.0.1';
 const PORT = process.env.PORT || '8888';
-
-const CCS_LOAD_STR = 'css?modules&importLoaders=1&localIdentName=[name]__[local]';
 const DEST = './';
 
 // global scss
@@ -31,7 +29,7 @@ loaders.push({
   test: /[\/\\]src[\/\\].*\.scss/,
   loaders: [
     'style?sourceMap',
-    CCS_LOAD_STR,
+    'css',
     'sass',
   ],
 });
@@ -41,7 +39,7 @@ loaders.push({
   test: /[\/\\]src[\/\\].*\.css/,
   loaders: [
     'style?sourceMap',
-    CCS_LOAD_STR,
+    'css',
   ],
 });
 

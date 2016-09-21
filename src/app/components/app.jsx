@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-widgets/lib/scss/react-widgets.scss';
+
 import React from 'react';
 
 // Containers. Statefull (Contains some logic)
@@ -11,8 +12,8 @@ import SelectImageType from '../containers/selectImageType.jsx';
 import PreFooter from './preFooter';
 import Footer from './footer';
 
-// Import custom styles
-import styles from '../../index.scss';
+// Custom css
+import '../../index.scss';
 
 const App = () =>
   <div>
@@ -22,12 +23,7 @@ const App = () =>
           <h1>Bouncing Balls Project</h1>
         </div>
         <div className="row">
-          <div
-            className={
-            `${styles['equal-height-lg']}
-            ${styles['equal-height']}
-            ${styles['equal-height-sm']}`}
-          >
+          <div className="equal-height-lg equal-height equal-height-sm">
             <div className="col-md-2 col-sm-3 col-xs-4">
               <SelectImageType />
               <ListBall />

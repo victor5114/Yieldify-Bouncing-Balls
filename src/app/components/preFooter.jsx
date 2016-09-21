@@ -9,10 +9,8 @@ import github from '../../static/img/Techno/github.png';
 import webpack from '../../static/img/Techno/webpack.png';
 import heroku from '../../static/img/Techno/heroku.png';
 
-import styles from '../../index.scss';
-
 const PreFooter = () =>
-  <div className={styles['pre-footer']}>
+  <div className="pre-footer">
     <img alt="webpack" src={webpack} width="150" height="150" />
     <img alt="reactjs" src={react} width="150" height="150" />
     <img alt="babel" src={babel} width="150" height="150" />

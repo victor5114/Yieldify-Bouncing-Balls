@@ -12,8 +12,8 @@
     "build": "./node_modules/.bin/webpack --config webpack.production.config.js --progress --profile --colors",
     "fakeserve": "npm run build && node server/index.js",
     "lint": "./node_modules/.bin/eslint --ext js --ext jsx src || exit 0",
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register,static:./src/tests/mochacfg.js --require ./src/tests/testHelper.jsx './src/tests/components/**/*.@(js|jsx)' -R dot -s -1 || exit 0",
-    "test:watch": "npm run test -- --watch",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register,static:./src/tests/mochacfg.js --require ./src/tests/testHelper.jsx './src/tests/components/**/*.@(js|jsx)'",
+    "test:watch": "npm run test -- --watch --watch-extensions js,jsx",
     "e2e": "./node_modules/.bin/protractor ./e2e/protractor.conf.js"
   },
   "dependencies": {
@@ -42,10 +42,12 @@
     "chai-as-promised": "^5.3.0",
     "chai-jquery": "^2.0.0",
     "css-loader": "0.25.0",
+    "dirty-chai": "^1.2.2",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-mocha": "^4.5.1",
     "eslint-plugin-react": "^6.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "0.9.0",

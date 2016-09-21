@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from '../../index.scss';
 import heart from '../../static/img/Techno/heart.png';
 
 const Footer = () =>
-  <div className={styles.footer}>
+  <div className="footer">
     <p>
       Made with
       <span>
@@ -12,7 +11,7 @@ const Footer = () =>
           src={heart}
           width="12"
           height="12"
-          id={styles.heart}
+          id="heart"
         />
       </span>
       by Victor Pongnian for Yieldify

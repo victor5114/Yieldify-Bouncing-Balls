@@ -1,11 +1,10 @@
-import styles from './index.scss';
-
+/* eslint no-param-reassign: "off" */
 export default function (global) {
   global.isMobile = global.navigator
     ? global.navigator.userAgent.match(/Android|webOS|iPhone|iPod|iPad/i)
     : false;
 
-  global.document.body.className = global.isMobile ? styles.mobile : styles.desktop;
+  global.document.body.className = global.isMobile ? 'mobile' : 'desktop';
 
   // requestAnim shim layer by Paul Irish
   global.requestAnimFrame = (function wrap() {

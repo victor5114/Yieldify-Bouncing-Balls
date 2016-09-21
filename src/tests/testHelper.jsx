@@ -2,15 +2,16 @@ import jsdom from 'jsdom';
 import jquery from 'jquery';
 import TestUtils from 'react-addons-test-utils';
 import ReactDOM from 'react-dom';
-import chai, { expect } from 'chai';
+import chai from 'chai';
+import chaiJquery from 'chai-jquery';
+import dirtyChai from 'dirty-chai';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import chaiJquery from 'chai-jquery';
-
 import startup from '../startup';
 import reducers from '../app/reducers';
 
+const expect = chai.expect;
 // Set up testing environment to run like a browser in the command line
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
@@ -41,5 +42,7 @@ $.fn.simulate = function fn(eventName, value) {
 
 // Set up chai-jquery
 chaiJquery(chai, chai.util, $);
+// Add dirty chai. Replace expression property by handy functions
+chai.use(dirtyChai);
 
 export { renderComponent, expect };

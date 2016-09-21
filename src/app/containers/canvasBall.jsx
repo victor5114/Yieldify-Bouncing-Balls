@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { each } from 'lodash';
 import { addBall, updateBalls } from '../actions/index';
@@ -26,7 +27,8 @@ class canvasBall extends Component {
 
   componentDidMount() {
     this.ctx = this.canvas.getContext('2d');
-    // console.log(this.props.imageType);
+    console.log(this.canvas.getContext('2d', { alpha: 'false' }));
+
     // this.props.imageType is equal to either Brands, Countries, Politics
     const { img } = ImageFlyweightFactory.get(this.props.imageType, 'Backgrounds');
     this.background = img;
@@ -58,8 +60,6 @@ class canvasBall extends Component {
     const { clientWidth, clientHeight } = this.canvas.parentNode;
     this.canvas.setAttribute('width', Math.min(clientWidth, 800)); // max width
     this.canvas.setAttribute('height', Math.min(clientHeight, 600)); // max height
-    // //Call a function to redraw other content (texts, images etc)
-    // this.updateCanvas();
   }
 
   addBallOnClick(event) {

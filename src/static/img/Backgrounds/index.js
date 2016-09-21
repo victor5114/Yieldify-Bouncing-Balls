@@ -4,6 +4,6 @@ import westminster from './westminster.png';
 
 export default {
   Politics: westminster,
-  Brands: corporate,
+  Companies: corporate,
   Countries: worldMap,
 };

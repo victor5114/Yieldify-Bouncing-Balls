@@ -1,18 +1,21 @@
 import styles from './index.scss';
 
-export default function () {
-  window.isMobile = navigator.userAgent.match(/Android|webOS|iPhone|iPod|iPad/i);
-  document.body.className = window.isMobile ? styles.mobile : styles.desktop;
+export default function (global) {
+  global.isMobile = global.navigator
+    ? global.navigator.userAgent.match(/Android|webOS|iPhone|iPod|iPad/i)
+    : false;
+
+  global.document.body.className = global.isMobile ? styles.mobile : styles.desktop;
 
   // requestAnim shim layer by Paul Irish
-  window.requestAnimFrame = (function wrap() {
-    return window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.oRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
+  global.requestAnimFrame = (function wrap() {
+    return global.requestAnimationFrame ||
+            global.webkitRequestAnimationFrame ||
+            global.mozRequestAnimationFrame ||
+            global.oRequestAnimationFrame ||
+            global.msRequestAnimationFrame ||
             function rollbackFn(callback) {
-              window.setTimeout(callback, 1000 / 60);
+              global.setTimeout(callback, 1000 / 60);
             };
   }());
 }

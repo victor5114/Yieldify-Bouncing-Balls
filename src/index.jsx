@@ -7,7 +7,7 @@ import startup from './startup.js';
 import reducers from './app/reducers';
 import App from './app/components/app.jsx';
 
-startup();
+startup(window);
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 

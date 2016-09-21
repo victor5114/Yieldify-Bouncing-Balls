@@ -1,5 +1,5 @@
 import { sample } from 'lodash';
-import Brands from '../../static/img/Brands';
+import Companies from '../../static/img/Companies';
 import Countries from '../../static/img/Countries';
 import Politics from '../../static/img/Politics';
 
@@ -7,8 +7,8 @@ import Backgrounds from '../../static/img/Backgrounds';
 
 export const listImageType = [
   'Countries',
-  'Brands',
   'Politics',
+  'Companies',
 ];
 
 class ImageFlyweight {
@@ -26,12 +26,13 @@ export const ImageFlyweightFactory = (function factory() {
   return {
     get(srcName, type) {
       const srcID = `${srcName}_${type}`;
+      // console.log(srcID);
       if (!flyweights[srcID]) {
         let src;
 
         switch (type) {
-          case 'Brands': {
-            src = Brands[srcName];
+          case 'Companies': {
+            src = Companies[srcName];
             break;
           }
           case 'Countries': {
@@ -68,7 +69,7 @@ export const ImageFlyweightFactory = (function factory() {
 
 export function getListImagesByType() {
   return {
-    Brands: Object.keys(Brands),
+    Companies: Object.keys(Companies),
     Countries: Object.keys(Countries),
     Politics: Object.keys(Politics),
     Backgrounds: Object.keys(Backgrounds),

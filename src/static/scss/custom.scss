@@ -17,8 +17,8 @@ html {
 }
 
 body {
-  font: 17px/22px "courier-prime", courier, monospace;
-  color: #505050;
+  font: 17px/22px "courier-prime", courier, monospace !important;
+  color: #505050 !important;
 }
 
 body.desktop {
@@ -33,7 +33,7 @@ body.mobile {
 }
 
 .desktop .content {
-  width: 90%;
+  width: 100%;
   position: relative;
   overflow: scroll;
   top: 0;

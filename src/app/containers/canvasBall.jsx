@@ -108,7 +108,7 @@ class canvasBall extends Component {
 
   render() {
     return (
-      <div className="container-canvas">
+      <div>
         <canvas id="canvas" ref={c => { this.canvas = c; }} width="800" height="600" />
       </div>
     );

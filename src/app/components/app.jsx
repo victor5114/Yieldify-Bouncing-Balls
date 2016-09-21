@@ -12,7 +12,7 @@ import PreFooter from './preFooter';
 import Footer from './footer';
 
 // Import custom styles
-import styles from '../index.scss';
+import styles from '../../index.scss';
 
 const App = () =>
   <div>

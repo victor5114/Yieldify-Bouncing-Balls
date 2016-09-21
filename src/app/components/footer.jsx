@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../index.scss';
-import heart from '../static/img/Techno/heart.png';
+import styles from '../../index.scss';
+import heart from '../../static/img/Techno/heart.png';
 
 const Footer = () =>
   <div className={styles.footer}>

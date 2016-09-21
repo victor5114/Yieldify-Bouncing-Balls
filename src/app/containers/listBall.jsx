@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { resumeBall, pauseBall, deleteBall } from '../actions/index';
-import styles from '../index.scss';
+import styles from '../../index.scss';
 
 class listBall extends Component {
   static propTypes = {

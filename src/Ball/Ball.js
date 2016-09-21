@@ -66,7 +66,6 @@ export default class BallClass extends inherit(UniqueObject) {
     // Stop condition
     if (this.coord.euclideanDistance(pastPoint) < 20
       && this.coord.y > (maxHeight - BallClass.BALL_SIZE - 5)) {
-      console.log(this.coord.y);
       this.animate = false;
       return;
     }

@@ -1,14 +1,14 @@
 import { sample } from 'lodash';
-import Brands from '../static/Brands';
-import Countries from '../static/Countries';
-import Politics from '../static/Politics';
+import Brands from '../static/img/Brands';
+import Countries from '../static/img/Countries';
+import Politics from '../static/img/Politics';
 
-import Backgrounds from '../static/Backgrounds';
+import Backgrounds from '../static/img/Backgrounds';
 
 export const listImageType = [
+  'Countries',
   'Brands',
   'Politics',
-  'Countries',
 ];
 
 class ImageFlyweight {

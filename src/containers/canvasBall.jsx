@@ -7,6 +7,7 @@ import { ImageFlyweightFactory } from '../Ball/ImageManager';
 class canvasBall extends Component {
   static propTypes = {
     ballList: PropTypes.object.isRequired,
+    activeBallIds: PropTypes.array.isRequired,
     imageType: PropTypes.string.isRequired,
     addBall: PropTypes.func.isRequired,
     updateBalls: PropTypes.func.isRequired,
@@ -80,7 +81,9 @@ class canvasBall extends Component {
     const { width, height } = this.canvas;
     this.updateTime(diffTime => {
       each(this.props.ballList, (ball) => {
-        ball.updatePosition(width, height, diffTime);
+        if (this.props.activeBallIds.indexOf(ball.uuid) > -1) {
+          ball.updatePosition(width, height, diffTime);
+        }
       });
     });
     return this.props.ballList;
@@ -115,6 +118,7 @@ class canvasBall extends Component {
 function mapStateToProps(state) {
   return {
     ballList: state.balls.ballList,
+    activeBallIds: state.balls.activeBallIds,
     imageType: state.img.imageType,
   };
 }

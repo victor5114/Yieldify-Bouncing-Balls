@@ -5,12 +5,12 @@ import {
   UPDATE_BALLS,
   PAUSE_BALL,
   RESUME_BALL,
+  DELETE_BALL,
 } from '../actions/index';
 
 const INITIAL_STATE = {
   ballList: {},
   activeBallIds: [],
-  diffTime: 0,
   // We can add here other state properties so we can be more scalable later on.
 };
 
@@ -56,7 +56,6 @@ export default function (state = INITIAL_STATE, action) {
           [UUID]: action.payload,
         },
         activeBallIds: _.filter(state.activeBallIds, (id) => id !== UUID),
-        diffTime: action.payload.delta,
       };
     }
     case RESUME_BALL: {
@@ -69,6 +68,18 @@ export default function (state = INITIAL_STATE, action) {
           [UUID]: action.payload,
         },
         activeBallIds: state.activeBallIds.concat(UUID),
+      };
+    }
+    case DELETE_BALL: {
+      const UUID = action.payload.uuid;
+
+      const copy = Object.assign({}, state.ballList);
+      delete copy[UUID];
+
+      return {
+        ...state,
+        ballList: copy,
+        activeBallIds: _.filter(state.activeBallIds, (id) => id !== UUID),
       };
     }
     default: {

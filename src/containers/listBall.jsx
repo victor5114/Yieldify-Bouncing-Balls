@@ -6,6 +6,7 @@ import styles from '../index.scss';
 class listBall extends Component {
   static propTypes = {
     ballList: PropTypes.object.isRequired,
+    activeBallIds: PropTypes.array.isRequired,
     resumeBall: PropTypes.func.isRequired,
     pauseBall: PropTypes.func.isRequired,
     deleteBall: PropTypes.func.isRequired,
@@ -17,25 +18,69 @@ class listBall extends Component {
   }
 
   // Optimization performance.
-  // Don't render unless we have a new element around in the list
+  // Don't render unless we have an element update in the list
   shouldComponentUpdate(nextProps) {
-    const now = Object.keys(this.props.ballList).length;
-    const next = Object.keys(nextProps.ballList).length;
-    return now !== next;
+    const nowBallList = Object.keys(this.props.ballList).length;
+    const nextBallList = Object.keys(nextProps.ballList).length;
+
+    if (nowBallList !== nextBallList) {
+      return true;
+    }
+
+    const nowActiveBall = this.props.activeBallIds.length;
+    const nextActiveBall = nextProps.activeBallIds.length;
+
+    if (nowActiveBall !== nextActiveBall) {
+      return true;
+    }
+
+    return false;
   }
 
   renderBallElement() {
     const { ballList } = this.props;
     const prepToRenderList = Object.keys(ballList).map(key => ballList[key]);
+
+    if (prepToRenderList.length === 0) {
+      return (
+        <div className={styles['empty-ball-list']}>
+          <b>Click on canvas</b>
+          <span className="glyphicon glyphicon-arrow-right" />
+        </div>
+      );
+    }
+
     return prepToRenderList.map(ball =>
       <li className="list-group-item clearfix" key={ball.uuid}>
         <strong>{ball.uuid} : </strong>
         <img src={ball.backgroundImage.img.src} alt="ball.uuid" height="40" width="40" />
         <span className="pull-right">
-          <button className="btn btn-default">
-            <span className="glyphicon glyphicon-pause" />
-          </button>
-          <button className="btn btn-danger">
+          {(() => {
+            if (this.props.activeBallIds.indexOf(ball.uuid) > -1) {
+              return (
+                <button
+                  className="btn btn-default"
+                  onClick={() => { this.props.pauseBall(ball); }}
+                >
+                  <span className="glyphicon glyphicon-pause" />
+                </button>
+              );
+            }
+
+            return (
+              <button
+                className="btn btn-primary"
+                onClick={() => { this.props.resumeBall(ball); }}
+              >
+                <span className="glyphicon glyphicon-play" />
+              </button>
+            );
+          })()}
+
+          <button
+            className="btn btn-danger"
+            onClick={() => { this.props.deleteBall(ball); }}
+          >
             <span className="glyphicon glyphicon-trash" />
           </button>
         </span>
@@ -46,7 +91,6 @@ class listBall extends Component {
   render() {
     return (
       <div className={styles['container-list-ball']}>
-        <span>LIST OF BALLS</span>
         <ul className="list-group">
           {this.renderBallElement()}
         </ul>
@@ -56,7 +100,10 @@ class listBall extends Component {
 }
 
 function mapStateToProps(state) {
-  return { ballList: state.balls.ballList };
+  return {
+    ballList: state.balls.ballList,
+    activeBallIds: state.balls.activeBallIds,
+  };
 }
 
 export default connect(mapStateToProps, { resumeBall, pauseBall, deleteBall })(listBall);

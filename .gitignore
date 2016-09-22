@@ -10,3 +10,6 @@ bundle.js
 
 # Node env
 /server/config/.env
+
+# Build folder
+/build

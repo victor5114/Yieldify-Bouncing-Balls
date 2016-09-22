@@ -5,15 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
-
-const CCS_LOAD_STR = 'css?modules&importLoaders=1&localIdentName=[name]__[local]';
 const DEST = './build';
 
 loaders.push({
   test: /[\/\\]src[\/\\].*\.scss/,
   loaders: [
     'style?sourceMap',
-    CCS_LOAD_STR,
+    'css',
     'sass',
   ],
 });
@@ -23,7 +21,7 @@ loaders.push({
   test: /[\/\\]src[\/\\].*\.css/,
   loaders: [
     'style?sourceMap',
-    CCS_LOAD_STR,
+    'css',
   ],
 });
 // global scss

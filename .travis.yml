@@ -1,0 +1,23 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+- "4.4"
+- "4.3"
+addons:
+apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+    - google-chrome-beta
+    - libcairo2-dev l
+    - ibjpeg8-dev
+    - libpango1.0-dev
+    - libgif-dev
+    - build-essential
+    - g++
+before_scrip:
+- npm install
+- npm run build
+script: npm test

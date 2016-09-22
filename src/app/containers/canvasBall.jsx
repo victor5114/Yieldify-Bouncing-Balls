@@ -26,7 +26,7 @@ class canvasBall extends Component {
 
   componentDidMount() {
     this.ctx = this.canvas.getContext('2d');
-    
+
     // this.props.imageType is equal to either Brands, Countries, Politics
     const { img } = ImageFlyweightFactory.get(this.props.imageType, 'Backgrounds');
     this.background = img;

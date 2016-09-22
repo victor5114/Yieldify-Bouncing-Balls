@@ -16,7 +16,7 @@ class ImageFlyweight {
     const img = new Image();
     this.src = src;
     this.img = img;
-    this.img.src = src;
+    this.img.src = typeof src === 'object' ? 'noop' : src;
   }
 }
 
@@ -48,6 +48,7 @@ export const ImageFlyweightFactory = (function factory() {
             break;
           }
           default: {
+            src = 'noop';
             break;
           }
         }

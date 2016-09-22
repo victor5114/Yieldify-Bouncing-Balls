@@ -14,6 +14,12 @@ export default function (global) {
             global.oRequestAnimationFrame ||
             global.msRequestAnimationFrame ||
             function rollbackFn(callback) {
+              // This is used to prevent rendering animation during tests
+              // which lead to unexpected behaviour.
+              if (global.navigator === 'node.js') {
+                return;
+              }
+
               global.setTimeout(callback, 1000 / 60);
             };
   }());

@@ -5,17 +5,21 @@ import ReactDOM from 'react-dom';
 import chai from 'chai';
 import chaiJquery from 'chai-jquery';
 import dirtyChai from 'dirty-chai';
+import Canvas, { Image } from 'canvas';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import startup from '../startup';
 import reducers from '../app/reducers';
 
+
 const expect = chai.expect;
 // Set up testing environment to run like a browser in the command line
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
-global.Image = global.window.Image;
+global.Canvas = Canvas;
+global.Image = Image;
+global.navigator = 'node.js';
 
 startup(global.window);
 

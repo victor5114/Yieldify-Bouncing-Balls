@@ -17,11 +17,11 @@ describe('----- Footer basic tests -----', () => {
     it('Paragraph shows correct text', () => {
       const p1 = component.children('p');
       expect(p1).to.exist;
-      const spans = p1.children('span');
-      console.log(spans);
-      console.log(spans[0]);
-      console.log(spans[1]);
-      console.log(spans[2]);
+      // const spans = p1.children('span');
+      // console.log(spans);
+      // console.log(spans[0]);
+      // console.log(spans[1]);
+      // console.log(spans[2]);
       // expect(spans[0]).to.contain('Made with');
     });
 

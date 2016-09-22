@@ -12,7 +12,7 @@ apt:
     - google-chrome-stable
     - google-chrome-beta
 before_install:
-- sudo apt-get install update
+- sudo apt-get update
 - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
 - sudo sh -e /etc/init.d/xvfb start
 before_scrip:

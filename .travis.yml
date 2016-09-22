@@ -11,13 +11,8 @@ apt:
     packages:
     - google-chrome-stable
     - google-chrome-beta
-    - libcairo2-dev l
-    - ibjpeg8-dev
-    - libpango1.0-dev
-    - libgif-dev
-    - build-essential
-    - g++
 before_scrip:
+- apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
 - npm install
 - npm run build
 script: npm test

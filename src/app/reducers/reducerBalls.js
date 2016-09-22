@@ -2,13 +2,12 @@ import _ from 'lodash';
 import {
   ADD_BALL,
   UPDATE_BALL,
-  UPDATE_BALLS,
   PAUSE_BALL,
   RESUME_BALL,
   DELETE_BALL,
 } from '../actions/index';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   ballList: {},
   activeBallIds: [],
   // We can add here other state properties so we can be more scalable later on.
@@ -39,14 +38,6 @@ export default function (state = INITIAL_STATE, action) {
         },
       };
     }
-    case UPDATE_BALLS: {
-      return {
-        ...state,
-        ballList: {
-          ...state.ballList,
-        },
-      };
-    }
     case PAUSE_BALL: {
       const UUID = action.payload.uuid;
       return {
@@ -67,7 +58,9 @@ export default function (state = INITIAL_STATE, action) {
           ...state.ballList,
           [UUID]: action.payload,
         },
-        activeBallIds: state.activeBallIds.concat(UUID),
+        activeBallIds: state.activeBallIds
+          ? state.activeBallIds.concat(UUID)
+          : state.balls.activeBallIds.concat(UUID),
       };
     }
     case DELETE_BALL: {

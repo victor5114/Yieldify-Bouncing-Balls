@@ -4,7 +4,7 @@ import {
   CHANGE_IMAGE_TYPE,
 } from '../actions/index';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   imageType: listImageType[0],
   // We can add here other state properties so we can be more scalable later on.
 };

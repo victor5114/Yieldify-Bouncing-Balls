@@ -52,7 +52,11 @@ class listBall extends Component {
     return prepToRenderList.map(ball =>
       <li className="list-group-item clearfix" key={ball.uuid}>
         <strong>{ball.uuid} : </strong>
-        <img src={ball.backgroundImage.img.src} alt="ball.uuid" height="40" width="40" />
+        <img
+          key={ball.uuid}
+          src={ball.backgroundImage.img.src}
+          alt="ball.uuid" height="40" width="40"
+        />
         <span className="pull-right">
           {(() => {
             if (this.props.activeBallIds.indexOf(ball.uuid) > -1) {

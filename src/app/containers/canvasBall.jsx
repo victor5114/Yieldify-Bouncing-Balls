@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { each } from 'lodash';
-import { addBall, updateBalls } from '../actions/index';
+import { addBall } from '../actions/index';
 import { ImageFlyweightFactory } from '../Ball/ImageManager';
 
 class canvasBall extends Component {
@@ -10,7 +10,6 @@ class canvasBall extends Component {
     activeBallIds: PropTypes.array.isRequired,
     imageType: PropTypes.string.isRequired,
     addBall: PropTypes.func.isRequired,
-    updateBalls: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -41,7 +40,7 @@ class canvasBall extends Component {
     this.updateCanvas();
   }
 
-  componentWillUpdate() {
+  componentDidUpdate() {
     // perform any preparations for an upcoming update
     const { img } = ImageFlyweightFactory.get(this.props.imageType, 'Backgrounds');
     this.background = img;
@@ -71,8 +70,7 @@ class canvasBall extends Component {
   updateCanvas() {
     window.requestAnimFrame(this.updateCanvas);
     this.drawAll();
-    const updatedBalls = this.moveAll();
-    this.props.updateBalls(updatedBalls);
+    this.moveAll();
   }
 
   moveAll() {
@@ -121,4 +119,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { addBall, updateBalls })(canvasBall);
+export default connect(mapStateToProps, { addBall })(canvasBall);

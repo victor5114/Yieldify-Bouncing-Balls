@@ -1,4 +1,4 @@
-import { sample } from 'lodash';
+import { sample, each } from 'lodash';
 import Companies from '../../static/img/Companies';
 import Countries from '../../static/img/Countries';
 import Politics from '../../static/img/Politics';
@@ -26,7 +26,7 @@ export const ImageFlyweightFactory = (function factory() {
   return {
     get(srcName, type) {
       const srcID = `${srcName}_${type}`;
-      // console.log(srcID);
+
       if (!flyweights[srcID]) {
         let src;
 
@@ -58,8 +58,8 @@ export const ImageFlyweightFactory = (function factory() {
     },
     getCount() {
       let count = 0;
-      flyweights.forEach((f) => {
-        if ({}.hasOwnProperty.call(flyweights, f)) {
+      each(flyweights, (f, i) => {
+        if ({}.hasOwnProperty.call(flyweights, i)) {
           count++;
         }
       });

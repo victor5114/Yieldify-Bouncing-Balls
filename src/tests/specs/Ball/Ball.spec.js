@@ -65,13 +65,13 @@ describe('%%%%% Ball %%%%%', () => {
       it('Update position after 100ms', () => {
         ball.updatePosition(800, 600, 100);
         expect(Math.floor(ball.coord.x)).to.be.equal(init.x - Ball.BALL_SIZE);
-        expect(Math.floor(ball.coord.y)).to.be.equal(36);
+        expect(Math.floor(ball.coord.y)).to.be.equal(32);
       });
 
       it('Update position after 200ms', () => {
         ball.updatePosition(800, 600, 200);
         expect(Math.floor(ball.coord.x)).to.be.equal(init.x - Ball.BALL_SIZE);
-        expect(Math.floor(ball.coord.y)).to.be.equal(24);
+        expect(Math.floor(ball.coord.y)).to.be.equal(18);
       });
     });
 
@@ -88,14 +88,14 @@ describe('%%%%% Ball %%%%%', () => {
         ball.updatePosition(800, 600, 100);
         expect(Math.floor(ball.coord.x)).to.be.equal(init.x - (Ball.BALL_SIZE / 2));
         // Should be up to Ball.BALL_SIZE / 2 compared to recenter true
-        expect(Math.floor(ball.coord.y)).to.be.equal(61);
+        expect(Math.floor(ball.coord.y)).to.be.equal(57);
       });
 
       it('Update position after 200ms', () => {
         ball.updatePosition(800, 600, 200);
         expect(Math.floor(ball.coord.x)).to.be.equal(init.x - (Ball.BALL_SIZE / 2));
         // Should be up to Ball.BALL_SIZE / 2 compared to recenter true
-        expect(Math.floor(ball.coord.y)).to.be.equal(49);
+        expect(Math.floor(ball.coord.y)).to.be.equal(43);
       });
     });
   });

@@ -16,7 +16,7 @@ export default function (app) {
   }
 
   if (env === 'production') {
-    app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
+    app.use(favicon(path.join(config.root, 'favicon.ico')));
   }
 
   // For this project, ./build is the only content by server

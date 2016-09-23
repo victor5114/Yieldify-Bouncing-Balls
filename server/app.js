@@ -25,7 +25,7 @@ expressConfig(app);
 routes(app);
 
 // Start server
-server.listen(envConfig.port, envConfig.ip, () => {
+server.listen(envConfig.port, () => {
   console.log('Express server listening on %d, in %s mode', envConfig.port, app.get('env'));
 });
 

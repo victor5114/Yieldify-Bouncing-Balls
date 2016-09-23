@@ -20,6 +20,8 @@ before_scrip:
 - npm run test-webdriver-update
 - npm run build
 script: npm run test
+after_success:
+- rm -rf node_modules/
 deploy:
   provider: heroku
   app: yieldify-bouncing-balls

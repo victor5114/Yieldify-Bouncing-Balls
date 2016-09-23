@@ -3,8 +3,8 @@ const path = require('path');
 const loaders = require('./webpack.loaders');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const HOST = process.env.HOST || '127.0.0.1';
-const PORT = process.env.PORT || '8888';
+const HOST = '127.0.0.1';
+const PORT = process.env.WEBPACK_SERVER_PORT || '8888';
 const DEST = './';
 
 // global scss

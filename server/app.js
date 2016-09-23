@@ -12,7 +12,7 @@ import routes from './routes';
 dotenv.load({
   path: `${__dirname}/config/.env`,
   sample: `${__dirname}/.env.example`,
-  allowEmptyValues: false,
+  allowEmptyValues: true,
 });
 
 // Setup server

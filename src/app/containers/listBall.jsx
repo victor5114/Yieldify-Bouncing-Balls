@@ -51,42 +51,45 @@ class listBall extends Component {
 
     return prepToRenderList.map(ball =>
       <li className="list-group-item clearfix" key={ball.uuid}>
-        <strong>{ball.uuid} : </strong>
+        <strong className="col-lg-2 col-md-4 col-sm-4 col-xs-4">{ball.uuid}:</strong>
         <img
+          className="col-lg-4 col-md-8 col-sm-8 col-xs-8"
           key={ball.uuid}
           src={ball.backgroundImage.img.src}
           alt="ball.uuid" height="40" width="40"
         />
-        <span className="pull-right">
-          {(() => {
-            if (this.props.activeBallIds.indexOf(ball.uuid) > -1) {
+        <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <span>
+            {(() => {
+              if (this.props.activeBallIds.indexOf(ball.uuid) > -1) {
+                return (
+                  <button
+                    className="btn btn-sm btn-default"
+                    onClick={() => { this.props.pauseBall(ball); }}
+                  >
+                    <span className="glyphicon glyphicon-pause" />
+                  </button>
+                );
+              }
+
               return (
                 <button
-                  className="btn btn-default"
-                  onClick={() => { this.props.pauseBall(ball); }}
+                  className="btn btn-sm btn-primary"
+                  onClick={() => { this.props.resumeBall(ball); }}
                 >
-                  <span className="glyphicon glyphicon-pause" />
+                  <span className="glyphicon glyphicon-play" />
                 </button>
               );
-            }
+            })()}
 
-            return (
-              <button
-                className="btn btn-primary"
-                onClick={() => { this.props.resumeBall(ball); }}
-              >
-                <span className="glyphicon glyphicon-play" />
-              </button>
-            );
-          })()}
-
-          <button
-            className="btn btn-danger"
-            onClick={() => { this.props.deleteBall(ball); }}
-          >
-            <span className="glyphicon glyphicon-trash" />
-          </button>
-        </span>
+            <button
+              className="btn btn-sm btn-danger"
+              onClick={() => { this.props.deleteBall(ball); }}
+            >
+              <span className="glyphicon glyphicon-trash" />
+            </button>
+          </span>
+        </div>
       </li>
     );
   }

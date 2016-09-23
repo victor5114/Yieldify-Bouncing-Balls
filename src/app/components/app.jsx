@@ -24,7 +24,7 @@ const App = () =>
         </div>
         <div className="row">
           <div className="equal-height-lg equal-height equal-height-sm">
-            <div className="col-md-2 col-sm-3 col-xs-4">
+            <div className="col-md-3 col-sm-3 col-xs-4">
               <SelectImageType />
               <ListBall />
             </div>

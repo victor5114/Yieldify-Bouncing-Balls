@@ -73,6 +73,24 @@ body.mobile {
   text-align: center;
 }
 
+.list-group-item li {
+  display: flex;
+  align-items: center;
+}
+
+.list-group-item button {
+  margin-top: 0.5rem ;
+  margin-left: 0.5rem ;
+}
+.empty-ball-list{
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 1rem;
+  }
+}
+
 #heart {
   margin-left: 8px;
   margin-right: 8px;

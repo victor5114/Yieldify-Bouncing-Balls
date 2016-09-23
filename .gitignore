@@ -7,6 +7,3 @@ bundle.js
 
 # Node Debug
 /npm-debug.log
-
-#Artifact
-/build

@@ -12,7 +12,7 @@ const all = {
   port: process.env.PORT || 9000,
 
   // Server IP
-  ip: process.env.IP || '0.0.0.0',
+  ip: process.env.IP || '127.0.0.1',
 };
 
 // Export the config object based on the NODE_ENV

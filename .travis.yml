@@ -20,11 +20,8 @@ before_scrip:
 - npm run test-webdriver-update
 - npm run build
 script: npm run test
-after_success:
-- rm -rf node_modules/
 deploy:
   provider: heroku
   app: yieldify-bouncing-balls
-  skip_cleanup: true
   api_key:
     secure: l13K+6v9wn2CNKqWd4Upsv7baOyKtuIj057JdiNZEubY5QEMvGSdyR/wMXSw8W6KZPnw+zBufAPAXT6fRI1fXnl6QJk4hsGauJuAwCeFBEi52R627YzlaylImWmGeVIAfb/w3gtES6wSGf1Iy//+R8e2VpQKYkTH83NEP/QuRrgre1KsQJoc80VvYPw1+zVu/sIvJZf/lPe7BW9uJH20BwQC4tRu0kYli23a8H4naN8Na0lu+hR6sDCBmFTh0bvlSxkOM8EqOr5o+5Ppq7zMiIm5+80HPedWMp8Zveo/Wk8PoyCkn08t9ldgpe8KpwqGEw8xO8N8k2BFnkCmWNw9h7quXI+WG74vBVwMa8Q3ENYX9zYkwRJ4Mj1FhSEko5TFoS/+FEW46iPxNATQeOc3h7x13aQHUVlm0D72Hir/M9mvwSHYT0u7j8GHnPtMF2j8w1gdvCsS7umN2MuqGP/hX8PncMGr64+7zVotf9NRKP40FbDwHYHlmyli77RE8YRbrjgIH2vPwKjQ35zPZ9/ulxrQz2sxj4eNv8AGvT5qWO20l3m7bga4egEzx8Pl0MLGIK6hsenOcPUlqEysq3QbWhiMQCuOQ/T5OW8L2E3ExOOkEwJ8xQiPbiz+tIr3Xu0Pi/9i5NMZTd6ykd8+1ExI8VtD2DI35oEbN6Y1LQSVoyQ=

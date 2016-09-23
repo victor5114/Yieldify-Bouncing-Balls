@@ -8,5 +8,5 @@ bundle.js
 # Node Debug
 /npm-debug.log
 
-# Build folder
+#Artifact
 /build

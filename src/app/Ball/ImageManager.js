@@ -11,6 +11,11 @@ export const listImageType = [
   'Companies',
 ];
 
+/**
+* @class ImageFlyweight
+* @description Contains Image information
+* @constructor {String} src - src/link of image
+*/
 class ImageFlyweight {
   constructor(src) {
     const img = new Image();
@@ -20,6 +25,11 @@ class ImageFlyweight {
   }
 }
 
+/**
+* @function ImageFlyweightFactory
+* @description IIFE with flyweights object closure.
+* @return {Object} Factory - Expose get/getCount method
+*/
 export const ImageFlyweightFactory = (function factory() {
   const flyweights = {};
 
@@ -68,6 +78,11 @@ export const ImageFlyweightFactory = (function factory() {
   };
 }());
 
+/**
+* @function ImageFlyweightFactory
+* @description IIFE with flyweights object closure.
+* @return {Object} Associative array with list of all images link grouped by Type
+*/
 export function getListImagesByType() {
   return {
     Companies: Object.keys(Companies),
@@ -77,6 +92,12 @@ export function getListImagesByType() {
   };
 }
 
+/**
+* @function randomImagePicker
+* @description Pick a random image according of a certain type
+* @param {String} type - Image type
+* @return {String} - A random image string
+*/
 export function randomImagePicker(type) {
   const list = getListImagesByType();
   if (!list[type]) {

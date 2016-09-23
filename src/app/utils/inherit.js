@@ -1,3 +1,10 @@
+/**
+* @function
+* @description Multiple inherit function
+* @param {baseClass} baseClass
+* @param {...mixins} Mixins function to attach to object prototype
+* @return {baseClass} - Extended class
+*/
 export default (baseClass, ...mixins) => {
   const base = class _Combined extends baseClass {
     constructor(...args) {

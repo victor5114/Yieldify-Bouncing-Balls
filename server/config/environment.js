@@ -14,7 +14,6 @@ const all = {
   // Server IP
   ip: process.env.IP || '127.0.0.1',
 };
-
 // Export the config object based on the NODE_ENV
 // ==============================================
 export default all;
